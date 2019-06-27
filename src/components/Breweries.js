@@ -37,7 +37,7 @@ class Breweries extends Component
 
 	componentDidMount()
 	{
-		fetch('https://api.openbrewerydb.org/breweries')
+		fetch('https://brewery-api-v1.herokuapp.com/api/breweries')
 		.then(res => res.json())
 		.then((data) => {
 			this.setState({ 

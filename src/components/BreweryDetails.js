@@ -52,7 +52,7 @@ export class BreweryDetails extends Component
 
     componentWillMount()
 	{
-		fetch('https://api.openbrewerydb.org/breweries/' + this.props.match.params.id )
+		fetch('https://brewery-api-v1.herokuapp.com/api/breweries' + this.props.match.params.id )
 		.then(res => res.json())
 		.then((data) => {
 			this.setState({ 
