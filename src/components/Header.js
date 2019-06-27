@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
 
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 class Header extends Component
 {
     render()
     {
         return (
-
-            <div>
-                <h1>
-                    AndCulture Coding Challenge
-                </h1>
-            </div>
-
+            <Row >
+                <Col>
+                    <div className = 'header' >
+                        <h1>
+                            ANDCULTURE CODING CHALLENGE
+                        </h1>
+                    </div>
+                </Col>
+            </Row>
         );
     }
 }

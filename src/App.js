@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
-import BreweryContainer from './components/BreweryContainer'
-import Header from './components/Header'
+import Container from 'react-bootstrap/Container';
+import BreweryContainer from './components/BreweryContainer';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
-import './App.css';
+import './App.scss';
 
 class App extends Component 
 {
 	render() 
     {
     	return (
-			<div>
-				<Header />
-				<BreweryContainer />
-			</div>
+			<Container>
+				<div className = 'wrapper'>
+					<Header />
+					<BreweryContainer />
+					<Footer />
+				</div>
+			</Container>
 		);
 	}
 }

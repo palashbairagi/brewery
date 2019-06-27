@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import GoogleMapReact from 'google-map-react'
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export class BreweryDetails extends Component
 {
@@ -19,27 +21,32 @@ export class BreweryDetails extends Component
     render() 
 	{
 		return (
-            <div>
-				<h3> 
-					{ this.state.brewery.name } 
-				</h3>
-				<h4>
-					{ this.state.brewery.street + ', ' + this.state.brewery.city + ', ' + this.state.brewery.state + ' ' + this.state.brewery.postal_code }
-				</h4>
-				<div style = {{ height: '300px', width: '300px' }} >
-                   <GoogleMapReact bootstrapURLKeys = {{ key: 'AIzaSyBlBhqUPHPNTpc31_ombufYs_klgwfX6Vc' }}
-                        center = {{
-                            lat: parseFloat(this.state.brewery.latitude),
-                            lng: parseFloat(this.state.brewery.longitude)
-                           }}
-                        defaultZoom = { 10 } >
-					</GoogleMapReact>
-				</div>
-				<Link to = {`/brewery/`} >
-					Back
-				</Link> 
-
-			</div>
+            <Row>
+				<Col>
+					<div className = 'content-wrapper' >
+						<h3> 
+							{ this.state.brewery.name } 
+						</h3>
+						<h4>
+							{ this.state.brewery.street + ', ' + this.state.brewery.city + ', ' + this.state.brewery.state + ' ' + this.state.brewery.postal_code }
+						</h4>
+						<div className = 'map' >
+							<GoogleMapReact bootstrapURLKeys = {{ key: 'AIzaSyBlBhqUPHPNTpc31_ombufYs_klgwfX6Vc' }}
+								center = {{
+									lat: parseFloat(this.state.brewery.latitude),
+									lng: parseFloat(this.state.brewery.longitude)
+								}}
+								defaultZoom = { 10 } >
+							</GoogleMapReact>
+						</div>
+					</div>
+					<Link to = {`/brewery/`} >
+						<div className = 'back' >
+							Back
+						</div>
+					</Link> 
+				</Col>
+			</Row>
 		);
 	}
 

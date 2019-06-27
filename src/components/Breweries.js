@@ -1,4 +1,9 @@
 import React, { Component } from 'react'
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form'
+import FormControl from 'react-bootstrap/FormControl'
+
 import BreweryItem from './BreweryItem'
 
 class Breweries extends Component 
@@ -12,18 +17,21 @@ class Breweries extends Component
 	render() 
 	{
 		return (
-		<div>
-			<div>
-				<form>
-					<input type = "text" onChange = { this.filterBreweries } />
-				</form>	
-			</div>
-			<div>
-				{this.state.filteredBreweries.map((brewery) => (
-					< BreweryItem key = { brewery.id } brewery = { brewery } />
-				))}
-			</div>
-		</div>
+			<Row>
+				<Col>
+					<div className = 'search-wrapper' >
+						<Form>
+							<FormControl className = 'search-bar' type = 'text' placeholder = 'City' onChange = { this.filterBreweries } />
+						</Form>
+					</div>
+				</Col>
+
+				<Col>
+					{this.state.filteredBreweries.map((brewery) => (
+						< BreweryItem key = { brewery.id } brewery = { brewery } />
+					))}
+				</Col>
+			</Row>
 		);
 	}
 
