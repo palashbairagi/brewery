@@ -37,7 +37,10 @@ class Breweries extends Component
 
 	componentDidMount()
 	{
-		fetch('https://brewery-api-v1.herokuapp.com/api/breweries')
+		var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
+			targetUrl = 'https://brewery-api-v1.herokuapp.com/api/breweries'
+	
+		fetch( proxyUrl + targetUrl )
 		.then(res => res.json())
 		.then((data) => {
 			this.setState({ 

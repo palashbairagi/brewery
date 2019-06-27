@@ -17,7 +17,7 @@ export class BreweryItem extends Component
 							{ this.props.brewery.brewery_type }
 						</h4>
 						<h4>
-							{ this.props.brewery.street + ', ' + this.props.brewery.city + ', ' + this.props.brewery.state + ' ' + this.props.brewery.postal_code }
+							{ this.props.brewery.street + ', ' + this.props.brewery.city + ', ' + this.props.brewery.state + ' ' + this.props.brewery.postalCode }
 						</h4>
 					</Link>
 				</div>

@@ -28,7 +28,7 @@ export class BreweryDetails extends Component
 							{ this.state.brewery.name } 
 						</h3>
 						<h4>
-							{ this.state.brewery.street + ', ' + this.state.brewery.city + ', ' + this.state.brewery.state + ' ' + this.state.brewery.postal_code }
+							{ this.state.brewery.street + ', ' + this.state.brewery.city + ', ' + this.state.brewery.state + ' ' + this.state.brewery.postalCode }
 						</h4>
 						<div className = 'map' >
 							<GoogleMapReact bootstrapURLKeys = {{ key: 'AIzaSyBlBhqUPHPNTpc31_ombufYs_klgwfX6Vc' }}
@@ -52,7 +52,10 @@ export class BreweryDetails extends Component
 
     componentWillMount()
 	{
-		fetch('https://brewery-api-v1.herokuapp.com/api/breweries' + this.props.match.params.id )
+		var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
+			targetUrl = 'https://brewery-api-v1.herokuapp.com/api/breweries/' + this.props.match.params.id
+	
+		fetch( proxyUrl + targetUrl )
 		.then(res => res.json())
 		.then((data) => {
 			this.setState({ 
