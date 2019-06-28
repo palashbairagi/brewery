@@ -4,6 +4,7 @@ import GoogleMapReact from 'google-map-react'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import NotFound from './NotFound'
+import Progress from './Progress'
 
 class BreweryDetails extends Component
 {
@@ -17,13 +18,7 @@ class BreweryDetails extends Component
 		if ( this.state.is_loading === true )
 		{
 			return (
-				<Row>
-					<Col>
-						<div className = 'content-wrapper' >
-							Loading...
-						</div>
-					</Col>
-				</Row>
+				<Progress />
 			);
 		}
 		else if ( this.state.brewery !== null )

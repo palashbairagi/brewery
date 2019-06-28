@@ -3,7 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
-
+import Progress from './Progress'
 import BreweryItem from './BreweryItem'
 
 class Breweries extends Component 
@@ -11,28 +11,38 @@ class Breweries extends Component
 
 	state = {
 		breweries: [],
-		filteredBreweries: []
+		filteredBreweries: [],
+		is_loading: true
 	}
 
 	render() 
 	{
-		return (
-			<Row>
-				<Col>
-					<div className = 'search-wrapper' >
-						<Form>
-							<FormControl className = 'search-bar' type = 'text' placeholder = 'City' onChange = { this.filterBreweries } />
-						</Form>
-					</div>
-				</Col>
+		if ( this.state.is_loading === true )
+		{
+			return (
+				<Progress />
+			);
+		}
+		else
+		{
+			return (
+				<Row>
+					<Col>
+						<div className = 'search-wrapper' >
+							<Form>
+								<FormControl className = 'search-bar' type = 'text' placeholder = 'City' onChange = { this.filterBreweries } />
+							</Form>
+						</div>
+					</Col>
 
-				<Col>
-					{this.state.filteredBreweries.map((brewery) => (
-						< BreweryItem key = { brewery.id } brewery = { brewery } />
-					))}
-				</Col>
-			</Row>
-		);
+					<Col>
+						{this.state.filteredBreweries.map((brewery) => (
+							< BreweryItem key = { brewery.id } brewery = { brewery } />
+						))}
+					</Col>
+				</Row>
+			);
+		}
 	}
 
 	componentDidMount()
@@ -45,7 +55,8 @@ class Breweries extends Component
 		.then((data) => {
 			this.setState({ 
 				breweries: data,
-				filteredBreweries: data
+				filteredBreweries: data,
+				is_loading : false
 			})
 		})
 		.catch(console.log)
