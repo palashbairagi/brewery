@@ -44,7 +44,8 @@ class BreweryDetails extends Component
 										lat: parseFloat(this.state.brewery.latitude),
 										lng: parseFloat(this.state.brewery.longitude)
 									}}
-									defaultZoom = { 10 } >
+									defaultZoom = { 15 } >
+									<Marker lat = { parseFloat(this.state.brewery.latitude) } lng = { parseFloat(this.state.brewery.longitude) } text = { this.state.brewery.name } />
 								</GoogleMapReact>
 							</div>
 						</div>
@@ -94,5 +95,7 @@ class BreweryDetails extends Component
 	} 
 
 }
+
+const Marker = ({ text }) => <div className = 'marker' > {text} </div>;
 
 export default BreweryDetails

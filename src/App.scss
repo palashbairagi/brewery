@@ -77,6 +77,10 @@ button:focus {
   height: 300px; 
 }
 
+.marker {
+  color: $marker-font-color;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
